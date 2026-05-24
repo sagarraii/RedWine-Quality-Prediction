@@ -1,4 +1,12 @@
-from src.data_science_project.logger import logger
+from src.datascience import logger
+from src.datascience.pipeline.data_ingestion_pipeline import DataIngestionTrainingPipeline
 
-if __name__ == "__main__":
-    logger.info("This is a test log message.")
+STAGE_NAME = "Data Ingestion Stage"
+try:
+        logger.info(f">>>>>>> stage {STAGE_NAME} started <<<<<<<")
+        data_ingestion_pipeline = DataIngestionTrainingPipeline()
+        data_ingestion_pipeline.initiate_data_ingestion()
+        logger.info(f">>>>>>> stage {STAGE_NAME} completed <<<<<<<\n\n")
+except Exception as e:
+        logger.exception(e)
+        raise e
