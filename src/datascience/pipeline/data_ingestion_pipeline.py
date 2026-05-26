@@ -1,6 +1,6 @@
 from src.datascience.config.configuration import ConfigurationManager
 from src.datascience.components.data_ingestion import DataIngestion
-from src.datascience import logger
+from src.datascience.logging.logger import logger
 
 STAGE_NAME = "Data Ingestion Stage"
 
@@ -22,5 +22,5 @@ if __name__ == "__main__":
         data_ingestion_pipeline.initiate_data_ingestion()
         logger.info(f">>>>>>> stage {STAGE_NAME} completed <<<<<<<\n\n")
     except Exception as e:
-        logger.exception(e)
+        logger.info(e)
         raise e

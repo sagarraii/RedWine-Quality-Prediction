@@ -1,6 +1,6 @@
 import os
 import urllib.request as requests
-from src.datascience import logger
+from src.datascience.logging.logger import logger
 import zipfile
 
 from src.datascience.entity.config_entity import DataIngestionConfig

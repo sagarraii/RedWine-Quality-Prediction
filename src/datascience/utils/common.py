@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Any
 from box.exceptions import BoxValueError
 
+from src.datascience.logging.logger import logger
+
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
