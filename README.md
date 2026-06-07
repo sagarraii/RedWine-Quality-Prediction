@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # 🍷 Red Wine Quality Prediction
@@ -310,4 +309,3 @@ This project demonstrates:
 *Built with ❤️ and a lot of 🍷*
 
 </div>
-````
