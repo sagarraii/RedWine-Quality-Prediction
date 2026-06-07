@@ -2,3 +2,5 @@ dsp_venv/
 __pycache__/
 logs/
 artifacts/
+.env
+mlflow.db
