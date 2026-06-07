@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Quality Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .result-wrap { max-width: 480px; width: 100%; padding: 2rem 1rem; }
+    .wine-card { background: #fff; border-radius: 16px; border: 1px solid #e0e0e0; padding: 2rem; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .wine-title { font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    .wine-sub { font-size: 14px; color: #888; margin-bottom: 1.5rem; }
+    .score-ring { width: 120px; height: 120px; border-radius: 50%; background: #f5f3ff; border: 4px solid #7F77DD; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .score-num { font-size: 40px; font-weight: 700; color: #534AB7; line-height: 1; }
+    .score-out { font-size: 13px; color: #888; margin-top: 2px; }
+    .verdict { display: inline-flex; align-items: center; gap: 6px; padding: 6px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; margin-bottom: 1.5rem; }
+    .good { background: #EAF3DE; color: #3B6D11; }
+    .avg  { background: #FAEEDA; color: #854F0B; }
+    .poor { background: #FCEBEB; color: #A32D2D; }
+    hr { border: none; border-top: 1px solid #f0f0f0; margin: 1.25rem 0; }
+    .bar-section { text-align: left; }
+    .bar-label-row { font-size: 12px; color: #999; margin-bottom: 10px; }
+    .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .bar-label { font-size: 12px; color: #666; width: 90px; flex-shrink: 0; }
+    .bar-track { flex: 1; height: 7px; background: #f0f0f0; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; }
+    .bar-val { font-size: 12px; color: #999; width: 30px; text-align: right; }
+    .back-btn { display: inline-block; margin-top: 1.25rem; padding: 9px 20px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; color: #555; text-decoration: none; }
+    .back-btn:hover { background: #f9f9f9; }
+  </style>
+</head>
+<body>
+<div class="result-wrap">
+  <div class="wine-card">
+    <p class="wine-title">Wine Quality Prediction</p>
+    <p class="wine-sub">Based on your physicochemical inputs</p>
+
+    <div class="score-ring">
+      <span class="score-num">{{ prediction }}</span>
+      <span class="score-out">out of 10</span>
+    </div>
+
+    {% set score = prediction | int %}
+    {% if score >= 7 %}
+      <div class="verdict good">&#10003; Good quality</div>
+    {% elif score >= 5 %}
+      <div class="verdict avg">&#9888; Average quality</div>
+    {% else %}
+      <div class="verdict poor">&#10007; Below average</div>
+    {% endif %}
+
+    <hr>
+
+    <div class="bar-section">
+      <p class="bar-label-row">Quality scale reference</p>
+      <div class="bar-row">
+        <span class="bar-label">Poor (1–4)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:40%; background:#E24B4A;"></div></div>
+        <span class="bar-val">1–4</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Average (5–6)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:60%; background:#EF9F27;"></div></div>
+        <span class="bar-val">5–6</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Good (7–10)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%; background:#639922;"></div></div>
+        <span class="bar-val">7–10</span>
+      </div>
+    </div>
+
+    <hr>
+    <a href="/" class="back-btn">&#8592; Predict another wine</a>
+  </div>
+</div>
+</body>
+</html>
