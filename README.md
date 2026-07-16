@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍷 Red Wine Quality Prediction
+#  Red Wine Quality Prediction
 
 ### An End-to-End MLOps Pipeline for Predicting Wine Quality from Physicochemical Properties
 
@@ -14,7 +14,7 @@
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project implements a **production-grade, modular MLOps pipeline** for predicting the quality of red wine using physicochemical test data. Built on the Portuguese *Vinho Verde* dataset, the system goes far beyond a simple ML model — it is architected as a reproducible, config-driven, experiment-tracked, registry-integrated system with a live web application for inference.
 
@@ -22,62 +22,62 @@ This project implements a **production-grade, modular MLOps pipeline** for predi
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 | Feature | Description |
 |---|---|
-| 🔁 **Modular Pipeline** | Fully decoupled stages: Ingestion → Validation → Transformation → Training → Evaluation |
-| 🔬 **Experiment Tracking** | MLflow integration for logging params, metrics, and artifacts |
-| 📦 **Model Registry** | DagsHub-backed MLflow model versioning |
-| ⚙️ **Config-Driven** | YAML-based configs — zero hardcoded values |
-| 🌐 **Flask Web App** | Real-time predictions via an interactive UI |
-| 🔐 **Secure Secrets** | Environment variable management via `.env` + `dotenv` |
-| 📋 **Schema Validation** | Column presence, type checks, and validation status reporting |
+|  **Modular Pipeline** | Fully decoupled stages: Ingestion → Validation → Transformation → Training → Evaluation |
+|  **Experiment Tracking** | MLflow integration for logging params, metrics, and artifacts |
+|  **Model Registry** | DagsHub-backed MLflow model versioning |
+|  **Config-Driven** | YAML-based configs — zero hardcoded values |
+|  **Flask Web App** | Real-time predictions via an interactive UI |
+|  **Secure Secrets** | Environment variable management via `.env` + `dotenv` |
+|  **Schema Validation** | Column presence, type checks, and validation status reporting |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ````
-📦 ML          → scikit-learn, pandas, numpy
-📊 Tracking    → MLflow, DagsHub
-🌐 Backend     → Flask
-⚙️ Config      → YAML, python-dotenv
-🐍 Language    → Python 3.8+
+ ML          → scikit-learn, pandas, numpy
+ Tracking    → MLflow, DagsHub
+ Backend     → Flask
+ Config      → YAML, python-dotenv
+ Language    → Python 3.8+
 ````
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ````
 redwine-quality/
 │
-├── 📁 artifacts/                    # Auto-generated pipeline outputs
+├──  artifacts/                    # Auto-generated pipeline outputs
 │   ├── data_ingestion/
 │   ├── data_validation/
 │   ├── data_transformation/
 │   ├── model_trainer/
 │   └── model_evaluation/
 │
-├── 📁 config/
+├──  config/
 │   └── config.yaml                  # Central pipeline configuration
 │
-├── 📁 src/
+├──  src/
 │   └── datascience/
-│       ├── 📁 components/           # Core logic for each pipeline stage
+│       ├──  components/           # Core logic for each pipeline stage
 │       │   ├── data_ingestion.py
 │       │   ├── data_validation.py
 │       │   ├── data_transformation.py
 │       │   ├── model_trainer.py
 │       │   └── model_evaluation.py
 │       │
-│       ├── 📁 config/               # Config manager (reads YAML, creates dirs)
+│       ├──  config/               # Config manager (reads YAML, creates dirs)
 │       │   └── configuration.py
 │       │
-│       ├── 📁 constants/            # Path constants
-│       ├── 📁 entity/               # Typed config dataclasses
-│       ├── 📁 pipeline/             # Stage-level orchestrators
+│       ├──  constants/            # Path constants
+│       ├──  entity/               # Typed config dataclasses
+│       ├──  pipeline/             # Stage-level orchestrators
 │       │   ├── stage_01_data_ingestion.py
 │       │   ├── stage_02_data_validation.py
 │       │   ├── stage_03_data_transformation.py
@@ -85,10 +85,10 @@ redwine-quality/
 │       │   ├── stage_05_model_evaluation.py
 │       │   └── prediction_pipeline.py
 │       │
-│       └── 📁 utils/                # Shared helpers (logging, file I/O)
+│       └──  utils/                # Shared helpers (logging, file I/O)
 │
-├── 📁 research/                     # EDA and prototyping notebooks
-├── 📁 templates/                    # Flask HTML templates
+├──  research/                     # EDA and prototyping notebooks
+├──  templates/                    # Flask HTML templates
 │   ├── index.html
 │   └── results.html
 │
@@ -102,7 +102,7 @@ redwine-quality/
 
 ---
 
-## 🔄 ML Pipeline Workflow
+##  ML Pipeline Workflow
 
 ````
 ┌─────────────────┐     ┌──────────────────┐     ┌──────────────────────┐
@@ -136,7 +136,7 @@ redwine-quality/
 
 ---
 
-## 🧪 Stage Details
+##  Stage Details
 
 ### Stage 1 — Data Ingestion
 - Downloads the Wine Quality dataset (via KaggleHub or URL)
@@ -148,7 +148,7 @@ redwine-quality/
 - Generates a `validation_status.txt` report
 - Blocks downstream stages if validation fails — preventing silent data corruption
 
-### Stage 3 — Data Transformation ⭐
+### Stage 3 — Data Transformation 
 - Splits data into **train** and **test** sets
 - Applies feature scaling (StandardScaler) to numerical inputs
 - Fits the preprocessor **only on training data** to prevent data leakage
@@ -170,7 +170,7 @@ redwine-quality/
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **Wine Quality Dataset** — Portuguese *Vinho Verde* red wine physicochemical tests
 
@@ -187,19 +187,19 @@ redwine-quality/
 | `pH` | Acidity measure (0–14 scale) |
 | `sulphates` | Wine additive contributing to SO₂ |
 | `alcohol` | Percentage of alcohol by volume |
-| 🎯 `quality` | **Target** — score between 0 and 10 |
+| `quality` | **Target** — score between 0 and 10 |
 
 ---
 
-## 📈 MLflow Experiment Tracking
+##  MLflow Experiment Tracking
 
 This project integrates **MLflow + DagsHub** for complete experiment lifecycle management.
 
 Every training run logs:
-- ✅ Model parameters (`alpha`, `l1_ratio`)
-- ✅ Evaluation metrics (RMSE, MAE, R²)
-- ✅ Model artifact
-- ✅ Registered model version in DagsHub registry
+- 1.  Model parameters (`alpha`, `l1_ratio`)
+- 2.  Evaluation metrics (RMSE, MAE, R²)
+- 3.  Model artifact
+- 4.  Registered model version in DagsHub registry
 
 Model versions tracked:
 ````
@@ -210,7 +210,7 @@ ElasticnetModel v3  →  Best configuration
 
 ---
 
-## 🚀 Setup & Installation
+##  Setup & Installation
 
 ### 1. Clone the Repository
 
@@ -249,7 +249,7 @@ MLFLOW_TRACKING_PASSWORD=<your-dagshub-token>
 
 ---
 
-## ▶️ Running the Project
+##  Running the Project
 
 ### Run Full Training Pipeline
 
@@ -275,7 +275,7 @@ Visit: **http://localhost:8080**
 
 ---
 
-## 🔮 Roadmap
+##  Roadmap
 
 - [ ] **Dockerization** — `Dockerfile` + `docker-compose.yml` for environment portability
 - [ ] **CI/CD** — GitHub Actions for automated testing and deployment
@@ -286,7 +286,7 @@ Visit: **http://localhost:8080**
 
 ---
 
-## 💡 Key Learnings
+##  Key Learnings
 
 This project demonstrates:
 - End-to-end MLOps pipeline design with proper stage separation
@@ -298,7 +298,7 @@ This project demonstrates:
 
 ---
 
-## 👤 Author
+##  Author
 
 **Sagar Rai**
 
