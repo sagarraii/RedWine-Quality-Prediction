@@ -277,12 +277,12 @@ Visit: **http://localhost:8080**
 
 ##  Roadmap
 
-- [ ] **Dockerization** — `Dockerfile` + `docker-compose.yml` for environment portability
-- [ ] **CI/CD** — GitHub Actions for automated testing and deployment
-- [ ] **Cloud Deployment** — AWS (EC2/Elastic Beanstalk), Render, or Railway
-- [ ] **API Refactor** — Migrate from Flask templates to FastAPI with Swagger docs
-- [ ] **Model Monitoring** — Drift detection, automated retraining triggers
-- [ ] **Performance Monitoring** — Grafana dashboard for live metric tracking
+-  **Dockerization** — `Dockerfile` + `docker-compose.yml` for environment portability
+-  **CI/CD** — GitHub Actions for automated testing and deployment
+-  **Cloud Deployment** — AWS (EC2/Elastic Beanstalk), Render, or Railway
+-  **API Refactor** — Migrate from Flask templates to FastAPI with Swagger docs
+-  **Model Monitoring** — Drift detection, automated retraining triggers
+-  **Performance Monitoring** — Grafana dashboard for live metric tracking
 
 ---
 
